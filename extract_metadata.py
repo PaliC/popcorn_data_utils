@@ -95,9 +95,11 @@ def get_repo_name(repo):
 
         # Extract org/repo from URL
         if "github.com" in remote_url:
-            parts = remote_url.split("github.com/")[-1].split("/")
-            if len(parts) >= 2:
-                return f"{parts[-2]}/{parts[-1]}"
+            # remove https://github.com/ prefix
+            repo_name = remote_url.replace("https://github.com/", "")
+            # remove git@github.com:
+            repo_name = repo_name.replace("git@github.com:", "")
+            return repo_name
     except:
         pass
 

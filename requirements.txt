@@ -2,3 +2,5 @@ requests
 tqdm
 GitPython
 uuid
+astor
+datasketch
